@@ -1,0 +1,10 @@
+{
+  "name": "runworkers",
+  "description": "A simple worker thread pool implementation in nodejs using --experimental-worker",
+  "version": "0.0.0",
+  "main": "execute.js",
+  "bin": "run.js",
+  "dependencies": {
+    "xstream": "11.11.0"
+  }
+}
