@@ -98,11 +98,14 @@ module.exports = (numThreads, workerFilename, workderDatas, callback) => {
   const handle = executorOutputProxy$.subscribe({
     next: ({ type, req, value }) => {
       console.debug("type, req.count", type, req.count);
-      if (type === "message") {
+      if (type === "message" || type === "error") {
         results.push({
           req,
           result: value
         });
+      }
+      if (type === "error") {
+        console.error(value);
       }
       if (type === "exit" && results.length === workderDatas.length) {
         handle.unsubscribe();
