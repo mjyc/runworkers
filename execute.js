@@ -17,7 +17,9 @@ const makeExecutor = (numThreads, workerFilename) => {
             }
             if (req.threadId < 0 || req.threadId >= workers.length) {
               console.warn(
-                `req.threadId < 0 || req.threadId >= workers.length; req.threadId=${req.threadId} workers.length=${workers.length}`
+                `req.threadId < 0 || req.threadId >= workers.length; req.threadId=${
+                  req.threadId
+                } workers.length=${workers.length}`
               );
               return;
             }
@@ -96,7 +98,6 @@ module.exports = (numThreads, workerFilename, workderDatas, callback) => {
   const handle = executorOutputProxy$.subscribe({
     next: ({ type, req, value }) => {
       console.debug("type, req.count", type, req.count);
-      delete req.data.args[0].testDataset;
       if (type === "message" || type === "error") {
         results.push({
           req,
