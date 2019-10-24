@@ -1,6 +1,6 @@
-# Worker Thread Pool Lite
+# runworkers
 
-A simple worker thread pool implementation in nodejs.
+A simple worker thread pool implementation in nodejs using `worker_threads`.
 
 ## Demo
 
